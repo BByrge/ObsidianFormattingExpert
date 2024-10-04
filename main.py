@@ -48,7 +48,8 @@ if __name__ == "__main__":
     with open(modelfile_path, 'r+', encoding='utf-8') as file:
         lines = file.readlines()
         if len(lines) > 30:
-            lines = lines[:30] + ['"""\nPARAMETER temperature 0.5\n']
+            # Add back the parameters
+            lines = lines[:30] + ['"""\nPARAMETER temperature 0.5\nPARAMETER num_ctx 4096\nPARAMETER mirostat_tau 3\n']
         file.seek(0)
         file.writelines(lines)
         file.truncate()

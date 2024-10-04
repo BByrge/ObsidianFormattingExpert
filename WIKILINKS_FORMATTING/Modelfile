@@ -30,3 +30,5 @@ File Names and Headers:
 
 """
 PARAMETER temperature 0.5
+PARAMETER num_ctx 4096
+PARAMETER mirostat_tau 3
