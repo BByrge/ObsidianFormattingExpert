@@ -1,11 +1,10 @@
 import os
+import subprocess
 import ObsidianFormattingExpertAPI as api
 import titleandheadergetter as thg
+from Config import VAULT_PATH as TARGET_DIRECTORY, SETTINGS, TITLES_AND_HEADERS
 
-TARGET_DIRECTORY = r'/home/bradley/Desktop/The vault/ObsidianOrganizerTest'
-MODELFILE_PATH = r'/home/bradley/ObsidianOrganizer/ObsidianAIExpert/Modelfile'
-
-def process_markdown_files(target_directory, modelfile_path):
+def process_markdown_files(target_directory):
     for root, dirs, files in os.walk(target_directory):
         # Exclude directories named "attachments"
         dirs[:] = [d for d in dirs if d != 'attachments']
@@ -18,10 +17,6 @@ def process_markdown_files(target_directory, modelfile_path):
                 with open(filepath, 'r', encoding='utf-8') as file:
                     content = file.read()
 
-                # Updates the model file with the headers and file names
-                # This is used to train the model. Specifically for wikilinks.
-                thg.get_file_names_and_headers(target_directory)
-
                 # Send content to ObsidianFormattingExpert for processing
                 updated_content = api.format_content(content)
 
@@ -32,6 +27,29 @@ def process_markdown_files(target_directory, modelfile_path):
                     else:
                         print(f"Error processing {filepath}")
 
-# Call the function with the target directory
-process_markdown_files(TARGET_DIRECTORY, MODELFILE_PATH)
+
+if __name__ == "__main__":
+    # Train the model for the current iteration
+    for setting in SETTINGS:
+        if SETTINGS[setting]:
+            model_file_path = os.path.join(setting, "Modelfile")
+            if setting == "WIKILINKS_FORMATTING" and TITLES_AND_HEADERS:
+                # Run the titleandheadergetter.py keywords function
+                thg.keywords(TARGET_DIRECTORY, model_file_path)
+            result = subprocess.run(["ollama", "create", "ObsidianFormattingExpert", "-f", model_file_path])
+
+            # Run the process_markdown_files function
+            process_markdown_files(TARGET_DIRECTORY)
+            # print(result.returncode)
+
+    # Clear text after line 30 in the file at path WIKILINKS_FORMATTING/Modelfile
+    # This clears the titles and headers from the file so it can be re-added in the next iteration
+    modelfile_path = os.path.join("WIKILINKS_FORMATTING", "Modelfile")
+    with open(modelfile_path, 'r+', encoding='utf-8') as file:
+        lines = file.readlines()
+        if len(lines) > 30:
+            lines = lines[:30] + ['"""\nPARAMETER temperature 0.5\n']
+        file.seek(0)
+        file.writelines(lines)
+        file.truncate()
 

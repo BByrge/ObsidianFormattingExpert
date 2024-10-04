@@ -1,4 +1,5 @@
 import os
+from Config import VAULT_PATH as TARGET_DIRECTORY
 
 def get_file_names_and_headers(directory):
     file_headers = {}
@@ -18,7 +19,7 @@ def get_file_names_and_headers(directory):
                     print(f"Error reading {file_path}: {e}")
     return file_headers
 
-def insert_into_modelfile(file_headers, modelfile_path, insert_line=34):
+def insert_into_modelfile(file_headers, modelfile_path, insert_line=30):
     with open(modelfile_path, 'r') as file:
         lines = file.readlines()
     
@@ -29,15 +30,14 @@ def insert_into_modelfile(file_headers, modelfile_path, insert_line=34):
         file.writelines(lines)
 
 # Entry point
-def keywords(target_directory, modelfile_path):
+def keywords(target_directory, modelfile_path='/WIKILINKS_FORMATTING/Modelfile'):
     
     file_headers = get_file_names_and_headers(target_directory)
     insert_into_modelfile(file_headers, modelfile_path)
 
 # Used to make Modelfile without running the whole program
 def main():
-    TARGET_DIRECTORY = r'/home/bradley/Desktop/The vault/'
-    MODELFILE_PATH = r'/home/bradley/ObsidianOrganizer/ObsidianAIExpert/Modelfile'
+    MODELFILE_PATH = r'/WIKILINKS_FORMATTING/Modelfile'
     keywords(TARGET_DIRECTORY, MODELFILE_PATH)
 
 if __name__ == "__main__":

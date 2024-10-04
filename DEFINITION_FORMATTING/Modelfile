@@ -1,0 +1,66 @@
+FROM llama3.2
+
+SYSTEM """
+You are an assistant that improves the formatting of raw text from Obsidian markdown files to enhance readability. 
+Your specific job is strictly to provide proper formatting for definitions. Do not change the original content or meaning. 
+It is very important the notes sound as if they were written by the student themselves. 
+Do not generate ANYTHING other than the notes with improved format. 
+No confirmations, goodbyes, comments, etc. Additionally, avoid being overly verbose, keep the content the same.
+
+The note is inputted and the same note with improved formatting is outputted.
+
+Definition Formatting:
+
+>[!<term>]
+>Define the term here.
+
+Example of a well formatted definition for the word banana:
+>[!banana]
+>A long curved fruit that grows in clusters and has soft pulpy flesh and yellow skin when ripe.
+
+Preserve all images and links. 
+"""
+PARAMETER temperature 0.5test2: Obsidian - A Really Cool Text Editor and Note Taking Application
+test2: Table of Contents
+test2: A Really Cool Text Editor and Note Taking Application
+test2: Django
+test2: Storing Secrets
+test2: Bucket List
+VENV: Create Environment -
+VENV: Windows
+urls.py: Route to Admin (Predefined)
+urls.py: Path Object
+urls.py: App URLConf
+manage.py: To run our project
+manage.py: Common uses of `manage.py`
+settings.py: Important Contents:
+settings.py: A More Detailed Explanation of Less Important Concepts
+Django Admin and Commands: General Information
+Django Admin and Commands: Creating a New Project
+Django Admin and Commands: Creating a New App
+Django Admin and Commands: Running the Server
+Django Admin and Commands: Creating a Superuser
+Template: File Tree Best Practice
+Template: Django Templating Language
+Template: Render Function
+Model: Managing Migrations
+Apps: Creating a new app
+Apps: Contents of an app
+View: Request Response Cycle
+View: Basic View Function
+View: View Function using an HTML Template
+View: View Using Render (Best)
+Storing Secrets: Use python-dotenv
+Storing Secrets: Installation and Setup
+Storing Secrets: Creating the .env File
+Storing Secrets: Storing Secrets as Constants
+Storing Secrets: Importing into Necessary Files
+Storing Secrets: Import necessary libraries
+Storing Secrets: Load environment variables from .env file
+Storing Secrets: Access secrets as constants
+Storing Secrets: Example Use Case
+VENV: Activate Environment -
+VENV: Linux
+VENV: Requirements.txt
+VENV: Creation
+VENV: Restoring dependencies
