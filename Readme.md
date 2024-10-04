@@ -2,6 +2,7 @@ Obsidian Markdown Enhancer
 # Welcome to ObsidianFormattingExpert
 
 Watch the tool in action- 
+
 [In action](https://github.com/user-attachments/assets/724da12e-eb8f-4c38-a593-92d7498ba091)
 
 
