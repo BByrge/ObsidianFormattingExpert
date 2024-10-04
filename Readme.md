@@ -1,42 +1,42 @@
 Obsidian Markdown Enhancer
-# Welcome to the Obsidian Markdown Enhancer!
+# Welcome to ObsidianFormattingExpert
 
-This tool uses an AI model to improve the formatting and readability of your Obsidian Markdown files. It focuses on enhancing definitions and creating internal links between your notes. The bots name is ObsidianFormattingExpert and is a custom llama3.2.
+ObsidianFormattingExpert is an AI-powered tool that enhances your Obsidian Markdown notes. It improves the formatting, formats definitions, and creates automatic wikilinks between notes.
+
+## Disclaimer
+Please backup your notes before using this tool. While the AI model is designed to enhance your notes, it may introduce errors or unwanted changes. Use at your own risk.
 
 ## Features
 
 - **Better Formatting:** Cleans up your notes for improved readability.
-- **Definition Callouts:** Highlights definitions using callout blocks.
+- **Definition as Callouts:** Highlights definitions using callout blocks.
 - **Automatic Wikilinks:** Creates links between notes based on titles and headers.
 
 ## How It Works
 
-1. **Input:** Provide raw text from your Obsidian Markdown files.
-2. **Processing:** The AI model enhances the formatting and fixes mistakes.
-3. **Output:** Receive improved Markdown files with better structure and links.
+Leveraging the Ollama API, this tool runs a custom-trained AI model specifically designed to enhance Obsidian Markdown notes. The model aims to significantly improve the structure and readability of your content.
 
 ## Getting Started
 
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/obsidian-markdown-enhancer.git
+git clone https://github.com/BByrge/ObsidianFormattingExpert
 ```
 
-### Install Requirements
+### Install Dependencies
+
+Download and install the Ollama - https://github.com/ollama/ollama
+
+```bash
+pip install -r requirements.txt
+```
+
+### Start the Ollama API
 
 Run ollama
 ```bash
 ollama serve
-```
-Train the model
-```bash
-ollama create ObsidianFormattingExpert -f Modelfile
-```
-
-Run the model
-```bash
-ollama run ObsidianFormattingExpert
 ```
 
 Stop ollama
@@ -45,10 +45,14 @@ systemctl stop ollama
 ```
 
 
-### Run the Enhancer
+### Configure the Tool
+
+Edit the Config.py file to specify your vault path and settings.
+
+### Run the Tool
 
 ```bash
-python enhance.py
+python main.py
 ```
 
 ### Enjoy Improved Notes
@@ -64,7 +68,3 @@ https://dev.to/jayantaadhikary/using-the-ollama-api-to-run-llms-and-generate-res
 ## Contributing
 
 Contributions are welcome! Feel free to submit issues or pull requests.
-
-## License
-
-This project is licensed under the MIT License.

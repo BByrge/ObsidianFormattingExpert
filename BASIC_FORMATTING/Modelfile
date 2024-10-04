@@ -22,3 +22,5 @@ The note is inputted and the same note with improved formatting is outputted.
 Preserve all images and links. 
 """
 PARAMETER temperature 0.5
+PARAMETER num_ctx 4096
+PARAMETER mirostat_tau 3
