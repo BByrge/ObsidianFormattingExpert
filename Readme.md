@@ -46,7 +46,7 @@ Run ollama
 ollama serve
 ```
 
-Stop ollama
+Stop ollama (When you are done)
 ```bash
 systemctl stop ollama
 ```
