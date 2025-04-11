@@ -33,7 +33,7 @@ git clone https://github.com/BByrge/ObsidianFormattingExpert
 
 ### Install Dependencies
 
-Download and install the Ollama - https://github.com/ollama/ollama
+Download and install - https://github.com/ollama/ollama
 
 ```bash
 pip install -r requirements.txt
