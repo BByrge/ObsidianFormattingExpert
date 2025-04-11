@@ -1,4 +1,3 @@
-Obsidian Markdown Enhancer
 # Welcome to ObsidianFormattingExpert
 
 **Unfinished but usable**
