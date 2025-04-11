@@ -5,7 +5,8 @@ Obsidian Markdown Enhancer
 
 Watch the tool in action- 
 
-[In action](https://github.com/user-attachments/assets/724da12e-eb8f-4c38-a593-92d7498ba091)
+![ObsidianFormatting Demo](https://github.com/user-attachments/assets/351c075f-368d-4706-8fc0-2c3a74e87885)
+
 
 
 ObsidianFormattingExpert is an AI-powered tool that enhances your Obsidian Markdown notes. It improves the formatting, formats definitions, and creates automatic wikilinks between notes.
